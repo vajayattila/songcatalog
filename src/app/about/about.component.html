@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <ng-container *ngIf="loading">
+    <app-load-indicator></app-load-indicator>
+  </ng-container>  
+  <!-- Default panel contents -->
+  <div class="panel-heading">Versions</div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Module</th>
+        <th>Part</th>
+        <th>Version</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let module of versions; let i = index">
+        <tr *ngFor="let part of module.parts; let f = first">
+          <th scope="row">
+            <ng-container *ngIf="f">
+              {{i+1}}
+            </ng-container>
+          </th>
+          <td>
+            <ng-container *ngIf="f">
+              {{module.moduleName}}
+            </ng-container>
+          </td>
+          <td>{{part.partName}}</td>
+          <td>{{part.version}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

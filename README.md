@@ -2,6 +2,26 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
+## Install source and node enviroment
+
+-  Create new angular project:
+````
+ng new songcatalog
+````
+- Copy app folder to new project's app folder (overwrite exist files)
+- Install ngx-bootstrap node module (https://www.npmjs.com/package/ngx-bootstrap):
+````
+npm install ngx-bootstrap --save
+npm install bootstrap@3
+````
+- Configure bootstrap in .angular-cli.json (https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/bootstrap4.md):
+````
+"styles": [  
+   "../node_modules/bootstrap/dist/css/bootstrap.min.css",  
+   "styles.css"  
+   ],
+````
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
