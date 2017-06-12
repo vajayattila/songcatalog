@@ -6,13 +6,32 @@
 }
 
 .navbar-brand{
+  display: flex;
 	color: yellow;
 }
 
+.navbar-brand img{
+  height: 100%;  
+  float: left;
+  margin-right: 0.25em;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container{
+    padding-left: 0.3em;
+    padding-right: 0.3em;    
+  }
+}
 
 @media screen and (max-width: 320px) {
   :host{
     font-size: 0.8em;
+  }
 
+  .navbar-brand{
+    font-size: 1.4em;
   }
 }
+
+

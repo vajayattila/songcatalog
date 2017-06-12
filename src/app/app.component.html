@@ -1,7 +1,10 @@
 <div class="container">
 	<nav class="navbar navbar-inverse">
 		<div class="navbar-header">
-			<a class="navbar-brand" routerLink="/"><span class="glyphicon glyphicon-cd"></span> {{title}}</a>
+			<a class="navbar-brand" routerLink="/">
+				<img src="assets/icon.png">
+				{{title}}
+			</a>
 			<button (click)="toggleMenu()" type="button"
 				class="navbar-toggle collapsed">
 				<span class="sr-only">Toggle navigation</span> <span
