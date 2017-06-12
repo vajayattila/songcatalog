@@ -4,23 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install source and node enviroment
 
--  Create new angular project:
-````
-ng new songcatalog
-````
-- Copy app folder to new project's app folder (overwrite exist files)
-- Install ngx-bootstrap node module (https://www.npmjs.com/package/ngx-bootstrap):
-````
-npm install ngx-bootstrap --save
-npm install bootstrap@3
-````
-- Configure bootstrap in .angular-cli.json (https://github.com/valor-software/ngx-bootstrap/blob/development/docs/getting-started/bootstrap4.md):
-````
-"styles": [  
-   "../node_modules/bootstrap/dist/css/bootstrap.min.css",  
-   "styles.css"  
-   ],
-````
+Run `npm install` to download the neccesary modules.
 
 ## Development server
 
