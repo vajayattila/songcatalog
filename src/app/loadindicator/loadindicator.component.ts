@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../storage.service'
 
 @Component({
     selector: 'app-load-indicator',
@@ -8,16 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class LoadIndicatorComponent {}
 
 export class LoadingPage{
-    public loading: boolean;
 
-    constructor(val: boolean) { 
-        this.loading=val;
+    constructor(protected storageService: StorageService) { 
     }
 
-    standby() {
-        this.loading = true;
+    standBy() {
+        return this.storageService.standBy();
+
     }
     ready() {
-        this.loading = false;
+        return this.storageService.ready();
+    }
+    isReady(){
+        return this.storageService.isReady();        
     }
 }

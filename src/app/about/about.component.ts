@@ -12,21 +12,20 @@ import { LoadingPage } from '../loadindicator/loadindicator.component'
 export class AboutComponent extends LoadingPage implements OnInit {
   versions: Array<moduleVersionType>;
 
-  constructor(private storageService: StorageService) {
-    super(true);
-
+  constructor(public storageService: StorageService) {
+    super(storageService);
   }
 
   ngOnInit() {
-    this.standby();    
     this.storageService.getVersions()
       .subscribe(
       versions => this.versions = versions['versions'], //Bind to view
       err => {
         // Log errors if any
         console.log(err);
+      },
+      ()=>{
+        this.ready()
       });
-      this.ready();
   }
-
 }
