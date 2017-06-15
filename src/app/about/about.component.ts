@@ -25,7 +25,7 @@ export class AboutComponent extends LoadingPage implements OnInit {
         console.log(err);
       },
       ()=>{
-        this.ready()
+        this.storageService.ready()
       });
   }
 }

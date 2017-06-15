@@ -1,13 +1,15 @@
-import { MainMenuService } from './main-menu.service';
+//import { MainMenuService } from './main-menu.service';
 import { MenuItemType } from './menuitemtype';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { StorageService } from '../storage.service';
+import { LoadingPage } from '../loadindicator/loadindicator.component'
 
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.css']
 })
-export class MainMenuComponent implements OnInit {
+export class MainMenuComponent extends LoadingPage implements OnInit {
   public menuitems: Array<MenuItemType>;
   private showedSubMenu: string;
   private activemenu: string;
@@ -16,10 +18,22 @@ export class MainMenuComponent implements OnInit {
   @Output()
   onhidemenu: EventEmitter<string> = new EventEmitter();
 
-  constructor(private mainMenuService: MainMenuService) { }
+  constructor(protected storageService: StorageService) {
+    super(storageService);
+  }
 
   ngOnInit() {
-    this.menuitems = this.mainMenuService.getMenuItems();
+    this.storageService.getMenuItems()
+      .subscribe(
+      menuitems => this.menuitems = menuitems['menuitems'], //Bind to view
+      err => {
+        // Log errors if any
+        console.log(err);
+      },
+      () => {
+        this.storageService.ready()
+      });
+
     this.showedSubMenu = '';
   }
 

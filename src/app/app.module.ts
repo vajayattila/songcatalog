@@ -8,7 +8,6 @@ import { Ng2BootstrapModule } from 'ngx-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { MainMenuService } from './main-menu/main-menu.service';
 import { HomeComponent } from './home/home.component';
 import { appRoutes } from './routes';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
@@ -20,6 +19,8 @@ import { GenresComponent } from './genres/genres.component';
 import { RegionsComponent } from './regions/regions.component';
 import { AboutComponent } from './about/about.component';
 import { LoadIndicatorComponent } from './loadindicator/loadindicator.component';
+import { StorageService } from './storage.service';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { LoadIndicatorComponent } from './loadindicator/loadindicator.component'
     RouterModule.forRoot(appRoutes),
     JsonpModule
   ],
-  providers: [MainMenuService],
+  providers: [StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,6 @@
+<ng-container *ngIf="isReady()===false">
+	<app-load-indicator></app-load-indicator>
+</ng-container>  
 <ul class="nav navbar-nav navbar-inverse">
 	<ng-container *ngFor="let menuitem of menuitems">
 		<li *ngIf="menuitem.subItems.length===0" 

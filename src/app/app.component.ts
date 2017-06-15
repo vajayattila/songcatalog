@@ -1,6 +1,6 @@
 /*import * as os from 'os';
 import * as electron from 'electron';*/
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   collapsed: string;
   title: string;
-  // database;
 
   constructor() {
     this.title = 'Song Catalog';
     this.collapsed = 'collapse';
+  }
+
+  ngOnInit(){
+
+    
   }
 
   toggleMenu() {
@@ -37,7 +41,4 @@ export class AppComponent {
     this.hideMenu();
   }
 
-  /*private async initDB(){
-    this.database=this.storageService.get();
-  } */
 }

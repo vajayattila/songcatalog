@@ -1,0 +1,14 @@
+div.loadmodal {
+    display:table;
+    position: fixed;
+    left: 0;
+    top: 0; 
+    border:1px solid black;
+    background: lightgreen;
+    z-index: 64000;
+    padding: 0.5em;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+}
