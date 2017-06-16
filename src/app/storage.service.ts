@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgModule, OnInit } from '@angular/core';
 import { versionsType } from './types';
 import { Http, Response } from '@angular/http';
 import { MenuItemType } from './main-menu/menuitemtype';
+import * as Config from './config.json';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -9,12 +10,11 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class StorageService {
-    private getVerionURL = 'http://localhost:8000/service?action=getversion';
-    private getMenuItemsURL = 'http://localhost:8000/service?action=getmenuitems';
     private loading;
-
+    public config;
 
     constructor(private http: Http) {
+        this.config=Config;
     }
 
     s4() {
@@ -30,7 +30,7 @@ export class StorageService {
 
     getVersions(): Observable<versionsType> {
         this.standBy();
-        return this.http.get(this.getVerionURL)
+        return this.http.get(this.config['songContestWebServiceUrl'] + 'getversion')
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
             //...errors if any
@@ -49,11 +49,10 @@ export class StorageService {
 
     getMenuItems(): Observable<MenuItemType> {
         this.standBy();
-        return this.http.get(this.getMenuItemsURL)
+        return this.http.get(this.config['songContestWebServiceUrl'] + 'getmenuitems')
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
             //...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-
 }
