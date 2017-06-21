@@ -1,3 +1,8 @@
-<p>
-  registration works!
-</p>
+<ng-container *ngIf="isAuthenticatedUser()===true">
+  <app-home></app-home>
+</ng-container>
+<ng-container *ngIf="isAuthenticatedUser()===false">
+  <p>
+    registration works!
+  </p>
+</ng-container>

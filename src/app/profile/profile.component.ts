@@ -3,11 +3,11 @@ import { LoadingPage } from '../loadindicator/loadindicator.component'
 import { StorageService } from '../storage.service'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class LoginComponent extends LoadingPage implements OnInit {
+export class ProfileComponent extends LoadingPage implements OnInit {
 
   constructor(public storageService: StorageService) { 
     super(storageService);
@@ -16,8 +16,6 @@ export class LoginComponent extends LoadingPage implements OnInit {
   ngOnInit() {
   }
 
-  isAuthenticatedUser(){
-    return this.storageService.isAuthenticatedUser();
-  }
+  
 
 }

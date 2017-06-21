@@ -8,9 +8,13 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegionsComponent } from './regions/regions.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { Routes } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
 
 export const appRoutes: Routes = [
   {
+    path: 'profile',
+    component: ProfileComponent
+  },{
     path: 'loginmain',
     component: LoginmainComponent
   }, {
@@ -33,6 +37,9 @@ export const appRoutes: Routes = [
     component: AboutComponent
   }, {
     path: 'home',
+    component: HomeComponent
+  }, {
+    path: 'logout',
     component: HomeComponent
   }, {
     path: '',

@@ -77,4 +77,23 @@ export class MainMenuComponent extends LoadingPage implements OnInit {
     return this.activesubmenu === caption ? 'active' : '';
   }
 
+  isAuthenticatedUser() {
+    return this.storageService.isAuthenticatedUser();
+  }
+
+  isShowableMenuItem(item) {
+    let retval;
+    if(this.isAuthenticatedUser()){
+      retval=item['showifauthenticated'];
+    }else{
+      retval=item['showdefault'];
+    }
+    return retval;
+  }
+
+  logout(){
+    this.storageService.logout();
+  }
+
+
 }

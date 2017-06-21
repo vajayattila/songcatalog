@@ -2,7 +2,8 @@ export class SubItemType {
   id: string;
   caption: string;
   route: string;
-  verified: boolean;  
+  showifauthenticated: boolean;
+  showdefault: boolean;
 }
 
 export class MenuItemType {
@@ -10,5 +11,6 @@ export class MenuItemType {
   caption: string;
   route: string;
   subItems: Array<SubItemType>;
-  verified: boolean;
+  showifauthenticated: boolean;
+  showdefault: boolean;
 }

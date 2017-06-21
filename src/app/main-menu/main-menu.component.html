@@ -3,30 +3,44 @@
 </ng-container>  
 <ul class="nav navbar-nav navbar-inverse">
 	<ng-container *ngFor="let menuitem of menuitems">
-		<li *ngIf="menuitem.subItems.length===0" 
-			class="{{isActiveMenu(menuitem.caption)}}">
-			<a (click)="selectUrl(menuitem.caption)" 
-				routerLink="{{menuitem.route}}">{{menuitem.caption}}
-			</a>
-		</li>
+		<ng-container *ngIf="isShowableMenuItem(menuitem)">
+			<ng-container *ngIf="menuitem.route!=='logout'">				
+				<li *ngIf="menuitem.subItems.length===0" 
+					class="{{isActiveMenu(menuitem.caption)}}">
+					<a (click)="selectUrl(menuitem.caption)" 
+						routerLink="{{menuitem.route}}">{{menuitem.caption}}
+					</a>
+				</li>
+			</ng-container>
+			<ng-container *ngIf="menuitem.route==='logout'">
+				<li *ngIf="menuitem.subItems.length===0" 
+					class="{{isActiveMenu(menuitem.caption)}}">
+					<button type="button" class="btn btn-default logoutbutton" (click)="logout()">{{menuitem.caption}}</button>
+				</li>
+			</ng-container>								
+		</ng-container>
 		<li (click)="toggleSubMenu(menuitem)" 
 			(mouseenter)="showSubMenu(menuitem)" 
 			(mouseleave)="hideSubMenu(menuitem)" 
 			*ngIf="menuitem.subItems.length!==0" 
 			class="dropdown {{isShowSubMenu(menuitem)}} {{isActiveMenu(menuitem.caption)}}">
-			<a (click)="selectUrl(menuitem.caption)" 
-				class="dropdown-toggle"
-				routerLink="{{menuitem.route}}">{{menuitem.caption}}
-				<span class="caret"></span>
-			</a>
+			<ng-container *ngIf="isShowableMenuItem(menuitem)">
+				<a (click)="selectUrl(menuitem.caption)" 
+					class="dropdown-toggle"
+					routerLink="{{menuitem.route}}">{{menuitem.caption}}
+					<span class="caret"></span>
+				</a>
+			</ng-container>
 			<ul class="dropdown-menu">
 				<ng-container *ngFor="let subitem of menuitem.subItems">
-					<li class="{{isActiveSubMenu(subitem.caption)}}">
-						<a (click)="selectSubUrl(menuitem.caption, subitem.caption)" 
-							routerLink="{{subitem.route}}">
-							{{subitem.caption}}
-						</a>
-					</li>
+					<ng-container *ngIf="isShowableMenuItem(menuitem)">
+						<li class="{{isActiveSubMenu(subitem.caption)}}">
+							<a (click)="selectSubUrl(menuitem.caption, subitem.caption)" 
+								routerLink="{{subitem.route}}">
+								{{subitem.caption}}
+							</a>
+						</li>
+					</ng-container>
 				</ng-container>
 			</ul>
 		</li>

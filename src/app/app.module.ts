@@ -19,6 +19,7 @@ import { GenresComponent } from './genres/genres.component';
 import { RegionsComponent } from './regions/regions.component';
 import { AboutComponent } from './about/about.component';
 import { LoadIndicatorComponent } from './loadindicator/loadindicator.component';
+import { ProfileComponent } from './profile/profile.component';
 import { StorageService } from './storage.service';
 
 
@@ -35,7 +36,8 @@ import { StorageService } from './storage.service';
     GenresComponent,
     RegionsComponent,
     AboutComponent,
-    LoadIndicatorComponent
+    LoadIndicatorComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

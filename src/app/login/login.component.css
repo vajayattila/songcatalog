@@ -1,0 +1,9 @@
+
+.form-group{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.form-group label, .form-group button{
+    margin-top: 1em;
+}
