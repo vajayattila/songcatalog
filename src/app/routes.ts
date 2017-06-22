@@ -9,6 +9,7 @@ import { RegionsComponent } from './regions/regions.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
+import { ActivationComponent } from './activation/activation.component';
 
 export const appRoutes: Routes = [
   {
@@ -44,6 +45,9 @@ export const appRoutes: Routes = [
   }, {
     path: '',
     component: HomeComponent
+  }, {
+    path: 'activation',
+    component: ActivationComponent
   },
   { path: '**', component: PagenotfoundComponent }
 ];

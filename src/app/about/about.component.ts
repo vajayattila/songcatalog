@@ -28,4 +28,5 @@ export class AboutComponent extends LoadingPage implements OnInit {
         this.storageService.ready()
       });
   }
+
 }

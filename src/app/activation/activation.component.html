@@ -1,0 +1,30 @@
+<ng-container *ngIf="isReady()===false">
+  <app-load-indicator></app-load-indicator>
+</ng-container>
+<ng-container *ngIf="isAuthenticatedUser()===true">
+  <app-home></app-home>
+</ng-container>
+<ng-container *ngIf="isAuthenticatedUser()===false">
+  <ng-container *ngIf="getInfoMessage()">
+    <div class="panel panel-info">
+      <div class="panel-heading">Activation</div>
+      <ul class="panel-body">
+        <li class="infoline" *ngFor="let infoLine of getInfoMessage()">
+          {{infoLine}}
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="activationCodeIsExists()===false">
+    <div class="panel panel-default">
+      <div class="panel-heading">Activation</div>
+      <form>
+        <div class="form-group">
+          <label for="codeInput">Activation code</label>
+          <input type="text" class="form-control" id="codeInput" placeholder="Enter activation code">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</ng-container>

@@ -3,76 +3,61 @@ import { versionsType } from './types';
 import { Http, Response, RequestOptions } from '@angular/http';
 import { MenuItemType } from './main-menu/menuitemtype';
 import * as Config from './config.json';
+import { HelperClass } from './helperclass/helperclass';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class StorageService {
-    private loading;
-    private authuuid = 'test';
-    public config;
+export class StorageService extends HelperClass{
+	private authuuid = 'test';
+	public config;
 
-    constructor(private http: Http) {
-        this.config = Config;
-    }
+	constructor(private http: Http) {
+		super();
+		this.config = Config;
+	}
 
-    s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    }
+	getVersions(): Observable<versionsType> {
+		this.standBy();
+		return this.http.get(this.config['songContestWebServiceUrl'], {
+			search: { action: 'getversion' }
+		})
+			// ...and calling .json() on the response to return data
+			.map((res: Response) => res.json())
+			//...errors if any
+			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+	}
 
-    guid() {
-        return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +
-            this.s4() + '-' + this.s4() + this.s4() + this.s4();
-    }
+	getMenuItems(): Observable<MenuItemType> {
+		this.standBy();
+		return this.http.get(this.config['songContestWebServiceUrl'], {
+			search: { action: 'getmenuitems' }
+		})
+			// ...and calling .json() on the response to return data
+			.map((res: Response) => res.json())
+			//...errors if any
+			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+	}
 
-    getVersions(): Observable<versionsType> {
-        this.standBy();
-        return this.http.get(this.config['songContestWebServiceUrl'], {
-            search: { action: 'getversion' }
-        })
-            // ...and calling .json() on the response to return data
-            .map((res: Response) => res.json())
-            //...errors if any
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
+	isAuthenticatedUser() {
+		return this.authuuid !== undefined;
+	}
 
-    standBy() {
-        this.loading = true;
-    }
-    ready() {
-        this.loading = false;
-    }
-    isReady() {
-        return !this.loading;
-    }
+	login() {
+		// call server login
+		// set this.authuuid
+	}
 
-    getMenuItems(): Observable<MenuItemType> {
-        this.standBy();
-        return this.http.get(this.config['songContestWebServiceUrl'], {
-            search: { action: 'getmenuitems' }
-        })
-            // ...and calling .json() on the response to return data
-            .map((res: Response) => res.json())
-            //...errors if any
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
+	logout() {
+		// call server logout
+		this.authuuid = undefined;
+	}
 
-    isAuthenticatedUser() {
-        return this.authuuid !== undefined;
-    }
-
-    login() {
-        // call server login
-        // set this.authuuid
-    }
-
-    logout() {
-        // call server logout
-        this.authuuid = undefined;
-    }
+	activate(code) {
+		this.addInfoMessage('Send activation code to server...');
+		// activate on server
+	}
 
 }

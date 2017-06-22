@@ -20,6 +20,7 @@ import { RegionsComponent } from './regions/regions.component';
 import { AboutComponent } from './about/about.component';
 import { LoadIndicatorComponent } from './loadindicator/loadindicator.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ActivationComponent } from './activation/activation.component';
 import { StorageService } from './storage.service';
 
 
@@ -37,7 +38,8 @@ import { StorageService } from './storage.service';
     RegionsComponent,
     AboutComponent,
     LoadIndicatorComponent,
-    ProfileComponent
+    ProfileComponent,
+    ActivationComponent
   ],
   imports: [
     BrowserModule,
