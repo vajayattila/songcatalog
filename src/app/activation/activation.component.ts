@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { StorageService } from '../storage.service'
-import { LoadingPage } from '../loadindicator/loadindicator.component'
+import { StorageService } from '../storageservice/storage.service';
+import { LoadingPage } from '../loadindicator/loadindicator.component';
 
 @Component({
   selector: 'app-activation',
@@ -27,10 +27,6 @@ export class ActivationComponent extends LoadingPage implements OnInit {
 
   activationCodeIsExists() {
     return this.activationCode !== undefined;
-  }
-
-  getInfoMessage(){
-    return this.storageService.getInfoMessage();
   }
 
   isAuthenticatedUser(){

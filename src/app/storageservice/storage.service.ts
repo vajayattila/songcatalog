@@ -1,9 +1,9 @@
 import { Injectable, NgModule, OnInit } from '@angular/core';
 import { versionsType } from './types';
 import { Http, Response, RequestOptions } from '@angular/http';
-import { MenuItemType } from './main-menu/menuitemtype';
-import * as Config from './config.json';
-import { HelperClass } from './helperclass/helperclass';
+import { MenuItemType } from '../main-menu/menuitemtype';
+import * as Config from '../config.json';
+import { HelperClass } from './helperclass';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class StorageService extends HelperClass{
-	private authuuid = 'test';
+	private authuuid = undefined;
 	public config;
 
 	constructor(private http: Http) {
@@ -27,7 +27,7 @@ export class StorageService extends HelperClass{
 			// ...and calling .json() on the response to return data
 			.map((res: Response) => res.json())
 			//...errors if any
-			.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+			.catch(error => Observable.throw(error.json().error || 'Server error'));
 	}
 
 	getMenuItems(): Observable<MenuItemType> {
@@ -56,7 +56,7 @@ export class StorageService extends HelperClass{
 	}
 
 	activate(code) {
-		this.addInfoMessage('Send activation code to server...');
+		this.addInfoMessage('Sent activation code to server...');
 		// activate on server
 	}
 

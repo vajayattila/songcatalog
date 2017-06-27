@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -21,8 +21,8 @@ import { AboutComponent } from './about/about.component';
 import { LoadIndicatorComponent } from './loadindicator/loadindicator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ActivationComponent } from './activation/activation.component';
-import { StorageService } from './storage.service';
-
+import { StorageService } from './storageservice/storage.service';
+import { MessagePanelComponent } from './messagepanel/messagepanel.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import { StorageService } from './storage.service';
     AboutComponent,
     LoadIndicatorComponent,
     ProfileComponent,
-    ActivationComponent
+    ActivationComponent,
+    MessagePanelComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,8 @@ import { StorageService } from './storage.service';
     HttpModule,
     Ng2BootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    JsonpModule
+    JsonpModule,
+    ReactiveFormsModule
   ],
   providers: [StorageService],
   bootstrap: [AppComponent]

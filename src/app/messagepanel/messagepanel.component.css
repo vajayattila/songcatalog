@@ -1,0 +1,3 @@
+.infoline, .errorline, .warningline, .successline{
+    display: block;
+}

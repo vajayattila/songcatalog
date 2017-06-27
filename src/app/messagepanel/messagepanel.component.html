@@ -1,0 +1,40 @@
+<ng-container *ngIf="getErrorMessage()">
+  <div class="panel panel-danger errormessage">
+    <div class="panel-heading">Error</div>
+    <ul class="panel-body">
+      <li class="errorline" *ngFor="let errorLine of getErrorMessage()">
+        {{errorLine}}
+      </li>
+    </ul>
+  </div>
+</ng-container>
+<ng-container *ngIf="getWarningMessage()">
+  <div class="panel panel-warning warningmessage">
+    <div class="panel-heading">Warning</div>
+    <ul class="panel-body">
+      <li class="warningline" *ngFor="let warningLine of getWarningMessage()">
+        {{warningLine}}
+      </li>
+    </ul>
+  </div>
+</ng-container>
+<ng-container *ngIf="getInfoMessage()">
+  <div class="panel panel-info infomessage">
+    <div class="panel-heading">Information</div>
+    <ul class="panel-body">
+      <li class="infoline" *ngFor="let infoLine of getInfoMessage()">
+        {{infoLine}}
+      </li>
+    </ul>
+  </div>
+</ng-container>
+<ng-container *ngIf="getSuccessMessage()">
+  <div class="panel panel-success successmessage">
+    <div class="panel-heading">Success</div>
+    <ul class="panel-body">
+      <li class="successline" *ngFor="let successLine of getSuccessMessage()">
+        {{successLine}}
+      </li>
+    </ul>
+  </div>
+</ng-container>

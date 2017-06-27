@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingPage } from '../loadindicator/loadindicator.component'
-import { StorageService } from '../storage.service'
+import { StorageService } from '../storageservice/storage.service'
 
 @Component({
   selector: 'app-profile',

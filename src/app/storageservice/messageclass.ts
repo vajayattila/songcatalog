@@ -3,7 +3,8 @@ import { LoaderClass } from './loaderclass';
 export class MessageClass extends LoaderClass{
 	protected infoMessage: Array<String>;
 	protected errorMessage: Array<String>;
-	protected warrningMessage: Array<String>;
+	protected warningMessage: Array<String>;
+	protected successMessage: Array<String>;
 
 	constructor() {
 		super();
@@ -41,19 +42,35 @@ export class MessageClass extends LoaderClass{
 		this.errorMessage = [];
 	}
 
-	setWarrningMessage(message: String) {
-		this.warrningMessage = [message];
+	setWarningMessage(message: String) {
+		this.warningMessage = [message];
 	}
 
-	getWarrningMessage(): Array<String> {
-		return this.warrningMessage;
+	getWarningMessage(): Array<String> {
+		return this.warningMessage;
 	}
 
-	addWarrningMessage(message) {
-		this.warrningMessage.push(message);
+	addWarningMessage(message) {
+		this.warningMessage.push(message);
 	}
 
-	clearWarrningMessage() {
-		this.warrningMessage = [];
+	clearWarningMessage() {
+		this.warningMessage = [];
+	}
+
+	setSuccessMessage(message: String) {
+		this.successMessage = [message];
+	}
+
+	getSuccessMessage(): Array<String> {
+		return this.successMessage;
+	}
+
+	addSuccessMessage(message) {
+		this.successMessage.push(message);
+	}
+
+	clearSuccessMessage() {
+		this.successMessage = [];
 	}
 }

@@ -5,20 +5,28 @@
   <app-home></app-home>
 </ng-container>
 <ng-container *ngIf="isAuthenticatedUser()===false">
-  <div class="panel panel-default">
+  <div class="panel panel-primary">
     <div class="panel-heading">Registration</div>
-    <form>
+    <form [formGroup]="regForm">
       <div class="form-group">
         <label for="userNameInput">Username</label>
-        <input type="text" class="form-control" id="userNameInput" placeholder="Enter username">
+        <input type="text" class="form-control" id="userNameInput" placeholder="Enter username"
+          formControlName="userName" >
         <label for="emailInput">Email</label>
-        <input type="email" class="form-control" id="emailInput" placeholder="Enter email">
+        <input type="email" class="form-control" id="emailInput" placeholder="Enter email" 
+          formControlName="email" >
         <label for="passwordInput">Password</label>
-        <input type="password" class="form-control" id="passwordInput" placeholder="Enter password">
+        <input type="password" class="form-control" id="passwordInput" 
+          placeholder="Enter password" formControlName="password" >
         <label for="password2Input">Password again</label>
-        <input type="password" class= "form-control" id="password2Input" placeholder="Re-Enter password">
+        <input type="password" class="form-control" id="password2Input" 
+          placeholder="Re-Enter password" formControlName="passwordAgain" >
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
+  </div>
+  <div>
+    <h2>Model:</h2>
+    {{ regData | json }}
   </div>
 </ng-container>

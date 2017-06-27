@@ -1,22 +1,13 @@
 <ng-container *ngIf="isReady()===false">
   <app-load-indicator></app-load-indicator>
 </ng-container>
+<app-messagepanel></app-messagepanel>
 <ng-container *ngIf="isAuthenticatedUser()===true">
   <app-home></app-home>
 </ng-container>
 <ng-container *ngIf="isAuthenticatedUser()===false">
-  <ng-container *ngIf="getInfoMessage()">
-    <div class="panel panel-info">
-      <div class="panel-heading">Activation</div>
-      <ul class="panel-body">
-        <li class="infoline" *ngFor="let infoLine of getInfoMessage()">
-          {{infoLine}}
-        </li>
-      </ul>
-    </div>
-  </ng-container>
   <ng-container *ngIf="activationCodeIsExists()===false">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
       <div class="panel-heading">Activation</div>
       <form>
         <div class="form-group">

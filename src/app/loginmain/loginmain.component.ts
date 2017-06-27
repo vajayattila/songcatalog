@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../storage.service';
+import { StorageService } from '../storageservice/storage.service';
 import { LoadingPage } from '../loadindicator/loadindicator.component';
 
 @Component({

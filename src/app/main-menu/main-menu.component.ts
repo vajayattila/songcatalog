@@ -1,8 +1,10 @@
 //import { MainMenuService } from './main-menu.service';
 import { MenuItemType } from './menuitemtype';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { StorageService } from '../storage.service';
-import { LoadingPage } from '../loadindicator/loadindicator.component'
+import { StorageService } from '../storageservice/storage.service';
+import { LoadingPage } from '../loadindicator/loadindicator.component';
+import { MessagePanelComponent } from '../messagepanel/messagepanel.component';
+import 'rxjs/add/observable/throw';
 
 @Component({
   selector: 'app-main-menu',
@@ -28,7 +30,7 @@ export class MainMenuComponent extends LoadingPage implements OnInit {
       menuitems => this.menuitems = menuitems['menuitems'], //Bind to view
       err => {
         // Log errors if any
-        console.log(err);
+        this.storageService.setErrorMessage(err)
       },
       () => {
         this.storageService.ready()
