@@ -7,26 +7,36 @@
 <ng-container *ngIf="isAuthenticatedUser()===false">
   <div class="panel panel-primary">
     <div class="panel-heading">Registration</div>
-    <form [formGroup]="regForm">
+    <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="userNameInput">Username</label>
         <input type="text" class="form-control" id="userNameInput" placeholder="Enter username"
           formControlName="userName" >
+        <div *ngIf="formErrors.userName" class="alert alert-danger">
+          {{ formErrors.userName }}
+        </div>
         <label for="emailInput">Email</label>
         <input type="email" class="form-control" id="emailInput" placeholder="Enter email" 
           formControlName="email" >
+        <div *ngIf="formErrors.email" class="alert alert-danger">
+          {{ formErrors.email }}
+        </div>  
         <label for="passwordInput">Password</label>
         <input type="password" class="form-control" id="passwordInput" 
           placeholder="Enter password" formControlName="password" >
+        <div *ngIf="formErrors.password" class="alert alert-danger">
+          {{ formErrors.password }}
+        </div>          
         <label for="password2Input">Password again</label>
         <input type="password" class="form-control" id="password2Input" 
           placeholder="Re-Enter password" formControlName="passwordAgain" >
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div *ngIf="formErrors.passwordAgain" class="alert alert-danger">
+          {{ formErrors.passwordAgain }}
+        </div>      
+        <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">Submit</button>
+        {{regForm.status}}
+        {{regForm.value | json }}
       </div>
     </form>
-  </div>
-  <div>
-    <h2>Model:</h2>
-    {{ regData | json }}
   </div>
 </ng-container>
