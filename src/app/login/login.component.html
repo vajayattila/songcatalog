@@ -6,14 +6,16 @@
 </ng-container>
 <ng-container *ngIf="isAuthenticatedUser()===false">
   <div class="panel panel-primary">
-    <div class="panel-heading">Login</div>
+    <div class="panel-heading">{{'login' | translate}}</div>
     <form>
       <div class="form-group">
-        <label for="userNameInput">Username</label>
-        <input type="text" class="form-control" id="userNameInput" placeholder="Enter username">
-        <label for="passwordInput">Password</label>
-        <input type="password" class="form-control" id="passwordInput" placeholder="Enter password">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <label for="userNameInput">{{'username' | translate}}</label>
+        <input type="text" class="form-control" id="userNameInput" 
+            placeholder="{{'enter_user_name' | translate}}">
+        <label for="passwordInput">{{'password' | translate}}</label>
+        <input type="password" class="form-control" id="passwordInput" 
+          placeholder="{{'enter_password' | translate}}">
+        <button type="submit" class="btn btn-primary">{{'login' | translate}}</button>
       </div>
     </form>
   </div>

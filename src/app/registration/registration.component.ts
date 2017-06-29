@@ -41,21 +41,21 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
 
   validationMessages = {
     'userName': {
-      'required': 'Username is required.',
-      'minlength': 'Username must be at least 4 characters long.',
-      'maxlength': 'username cannot be more than 30 characters long.',
+      'required': 'user_name_required',
+      'minlength': 'user_name_must_least_4',
+      'maxlength': 'user_name_cant_more_30',
     },
     'email': {
-      'required': 'Email is required.',
-      'mailFormat': 'Wrong email format'
+      'required': 'email_required',
+      'mailFormat': 'wrong_email_format'
     },
     'password': {
-      'required': 'Password is required.',
-      'maxlength': 'username cannot be more than 64 characters long.'
+      'required': 'password_required',
+      'maxlength': 'password_cant_more_64'
     },
     'passwordAgain': {
-      'required': 'Password is required.',
-      'MatchPassword': 'The second password differs from the first password.'
+      'required': 'password_required',
+      'MatchPassword': 'different_confirm_password'
     }
 
   };

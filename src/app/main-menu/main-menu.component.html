@@ -5,14 +5,16 @@
 				<li *ngIf="menuitem.subItems.length===0" 
 					class="{{isActiveMenu(menuitem.caption)}}">
 					<a (click)="selectUrl(menuitem.caption)" 
-						routerLink="{{menuitem.route}}">{{menuitem.caption}}
+						routerLink="{{menuitem.route}}">{{menuitem.route | translate}}
 					</a>
 				</li>
 			</ng-container>
 			<ng-container *ngIf="menuitem.route==='logout'">
 				<li *ngIf="menuitem.subItems.length===0" 
 					class="{{isActiveMenu(menuitem.caption)}}">
-					<button type="button" class="btn btn-default logoutbutton" (click)="logout()">{{menuitem.caption}}</button>
+					<button type="button" class="btn btn-default logoutbutton" 
+						(click)="logout()">{{menuitem.route | translate}}
+					</button>
 				</li>
 			</ng-container>								
 		</ng-container>
@@ -24,7 +26,7 @@
 			<ng-container *ngIf="isShowableMenuItem(menuitem)">
 				<a (click)="selectUrl(menuitem.caption)" 
 					class="dropdown-toggle"
-					routerLink="{{menuitem.route}}">{{menuitem.caption}}
+					routerLink="{{menuitem.route}}">{{menuitem.route | translate}}
 					<span class="caret"></span>
 				</a>
 			</ng-container>
@@ -34,7 +36,7 @@
 						<li class="{{isActiveSubMenu(subitem.caption)}}">
 							<a (click)="selectSubUrl(menuitem.caption, subitem.caption)" 
 								routerLink="{{subitem.route}}">
-								{{subitem.caption}}
+								{{subitem.route | translate}}
 							</a>
 						</li>
 					</ng-container>
@@ -42,4 +44,8 @@
 			</ul>
 		</li>
 	</ng-container>
+	<li class="flaglist">
+		<img (click)="setLanguage('en')" class="flag" src="assets/flags/english.svg" alt="English">
+		<img (click)="setLanguage('hu')" class="flag" src="assets/flags/hungary.svg" alt="Hungarian">
+	</li>
 </ul>

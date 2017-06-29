@@ -9,8 +9,7 @@ import 'rxjs/add/observable/throw';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css'],
-  providers: [StorageService]
+  styleUrls: ['./about.component.css']
 })
 export class AboutComponent extends LoadingPage implements OnInit {
   versions: Array<moduleVersionType>;

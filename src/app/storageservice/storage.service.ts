@@ -4,6 +4,7 @@ import { Http, Response, RequestOptions } from '@angular/http';
 import { MenuItemType } from '../main-menu/menuitemtype';
 import * as Config from '../config.json';
 import { HelperClass } from './helperclass';
+import { TranslateService } from '../translate/translate.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -14,8 +15,8 @@ export class StorageService extends HelperClass{
 	private authuuid = undefined;
 	public config;
 
-	constructor(private http: Http) {
-		super();
+	constructor(private http: Http, protected translateService: TranslateService) {
+		super(translateService);
 		this.config = Config;
 	}
 

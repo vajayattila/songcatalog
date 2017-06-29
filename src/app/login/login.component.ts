@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingPage } from '../loadindicator/loadindicator.component'
-import { StorageService } from '../storageservice/storage.service'
+import { LoadingPage } from '../loadindicator/loadindicator.component';
+import { StorageService } from '../storageservice/storage.service';
+import 'rxjs/add/observable/throw';
 
 @Component({
   selector: 'app-login',

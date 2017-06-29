@@ -19,7 +19,7 @@ export class ActivationComponent extends LoadingPage implements OnInit {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.activationCode = params.code;
       if(this.activationCode!==undefined){
-        this.storageService.setInfoMessage('Authentication parameter is detected...');
+        this.storageService.setInfoMessage(this.storageService.instant('auth_par_detected'));
         this.storageService.activate(this.activationCode);
       }
     });

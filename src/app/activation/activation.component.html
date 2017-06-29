@@ -8,12 +8,13 @@
 <ng-container *ngIf="isAuthenticatedUser()===false">
   <ng-container *ngIf="activationCodeIsExists()===false">
     <div class="panel panel-primary">
-      <div class="panel-heading">Activation</div>
+      <div class="panel-heading">{{'activation' | translate}}</div>
       <form>
         <div class="form-group">
-          <label for="codeInput">Activation code</label>
-          <input type="text" class="form-control" id="codeInput" placeholder="Enter activation code">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <label for="codeInput">{{'activation_code' | translate}}</label>
+          <input type="text" class="form-control" id="codeInput" 
+            placeholder="{{'enter_activation_code' | translate}}">
+          <button type="submit" class="btn btn-primary">{{'activation' | translate}}</button>
         </div>
       </form>
     </div>

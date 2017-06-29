@@ -4,6 +4,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StorageService } from '../storageservice/storage.service';
 import { LoadingPage } from '../loadindicator/loadindicator.component';
 import { MessagePanelComponent } from '../messagepanel/messagepanel.component';
+import { Title } from '@angular/platform-browser';
 import 'rxjs/add/observable/throw';
 
 @Component({
@@ -20,7 +21,7 @@ export class MainMenuComponent extends LoadingPage implements OnInit {
   @Output()
   onhidemenu: EventEmitter<string> = new EventEmitter();
 
-  constructor(protected storageService: StorageService) {
+  constructor(protected storageService: StorageService, protected titleService: Title) {
     super(storageService);
   }
 
@@ -97,5 +98,13 @@ export class MainMenuComponent extends LoadingPage implements OnInit {
     this.storageService.logout();
   }
 
+  setLanguage(lang){
+    this.storageService.selectLanguage(lang);
+    this.setTitle(this.storageService.instant('SongCatalog'));
+  }
+
+  public setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
 
 }

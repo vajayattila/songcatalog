@@ -6,34 +6,38 @@
 </ng-container>
 <ng-container *ngIf="isAuthenticatedUser()===false">
   <div class="panel panel-primary">
-    <div class="panel-heading">Registration</div>
+    <div class="panel-heading">{{'registration' | translate}}</div>
     <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="userNameInput">Username</label>
-        <input type="text" class="form-control" id="userNameInput" placeholder="Enter username"
+        <label for="userNameInput">{{'username' | translate}}</label>
+        <input type="text" class="form-control" id="userNameInput" 
+          placeholder="{{'enter_user_name' | translate}}"
           formControlName="userName" >
         <div *ngIf="formErrors.userName" class="alert alert-danger">
-          {{ formErrors.userName }}
+          {{ formErrors.userName | translate }}
         </div>
-        <label for="emailInput">Email</label>
-        <input type="email" class="form-control" id="emailInput" placeholder="Enter email" 
+        <label for="emailInput">{{'email' | translate}}</label>
+        <input type="email" class="form-control" id="emailInput" 
+          placeholder="{{'enter_email' | translate}}" 
           formControlName="email" >
         <div *ngIf="formErrors.email" class="alert alert-danger">
-          {{ formErrors.email }}
+          {{ formErrors.email | translate }}
         </div>  
-        <label for="passwordInput">Password</label>
+        <label for="passwordInput">{{'password' | translate}}</label>
         <input type="password" class="form-control" id="passwordInput" 
-          placeholder="Enter password" formControlName="password" >
+          placeholder="{{'enter_password' | translate}}" formControlName="password" >
         <div *ngIf="formErrors.password" class="alert alert-danger">
-          {{ formErrors.password }}
+          {{ formErrors.password | translate }}
         </div>          
-        <label for="password2Input">Password again</label>
+        <label for="password2Input">{{'password_again' | translate}}</label>
         <input type="password" class="form-control" id="password2Input" 
-          placeholder="Re-Enter password" formControlName="passwordAgain" >
+          placeholder="{{'reenter_password' | translate}}" formControlName="passwordAgain" >
         <div *ngIf="formErrors.passwordAgain" class="alert alert-danger">
-          {{ formErrors.passwordAgain }}
+          {{ formErrors.passwordAgain | translate }}
         </div>      
-        <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">
+          {{'registration' | translate}}
+        </button>
         {{regForm.status}}
         {{regForm.value | json }}
       </div>
