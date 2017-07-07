@@ -9,7 +9,6 @@ export class regdatatype {
   userName: String;
   email: String;
   password: String;
-  passwordAgain: String;
 }
 
 @Component({
@@ -68,10 +67,10 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
       'email': [this.regData.email, [
         Validators.required, GlobalValidator.mailFormat
       ]],
-      'password': [this.regData.password, [
+      'password': ['', [
         Validators.required, Validators.maxLength(64)
       ]],
-      'passwordAgain': [this.regData.passwordAgain, [
+      'passwordAgain': ['', [
         Validators.required
       ]]
     },{
@@ -106,14 +105,23 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
     this.regData = {
       userName: '',
       email: '',
-      password: '',
-      passwordAgain: ''
+      password: ''
     };
   }
 
   onSubmit(){
-    console.log('submited');
+    this.regData.userName=this.regForm.get('userName').value;
+    this.regData.email=this.regForm.get('email').value;
+    this.regData.password=this.regForm.get('password').value;
 
+    this.storageService.registration(this.regData).subscribe(
+      err => {
+        // Log errors if any
+        this.storageService.setErrorMessage(err)
+      },
+      ()=>{
+        this.storageService.ready()
+      });;
   }
 
 }
