@@ -26,6 +26,8 @@ import { MessagePanelComponent } from './messagepanel/messagepanel.component';
 import { TranslateService } from './translate/translate.service';
 import { TranslatePipe } from './translate/translate.pipe';
 import { TRANSLATION_PROVIDERS } from './translate/translations';
+import { MainMenuService } from './main-menu/main-menu.service';
+import { AboutService } from './about/about.service'
 
 @NgModule({
   declarations: [
@@ -55,7 +57,14 @@ import { TRANSLATION_PROVIDERS } from './translate/translations';
     JsonpModule,
     ReactiveFormsModule
   ],
-  providers: [StorageService, TRANSLATION_PROVIDERS, TranslateService, Title],
+  providers: [
+    StorageService, 
+    TRANSLATION_PROVIDERS, 
+    TranslateService, 
+    Title, 
+    MainMenuService, 
+    AboutService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

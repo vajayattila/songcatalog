@@ -8,6 +8,8 @@ export class moduleVersionType{
     parts: Array<partVersionType>;
 }
 
-export class versionsType{
+export class versionsResponseType{
+    status: string;
+    statuscode: number;
     versions : Array<moduleVersionType>;
 }

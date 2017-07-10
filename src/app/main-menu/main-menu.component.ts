@@ -1,10 +1,11 @@
-//import { MainMenuService } from './main-menu.service';
-import { MenuItemType } from './menuitemtype';
+import { MenuItemsResponseType, MenuItemType } from './main-menu.types';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StorageService } from '../storageservice/storage.service';
 import { LoadingPage } from '../loadindicator/loadindicator.component';
 import { MessagePanelComponent } from '../messagepanel/messagepanel.component';
 import { Title } from '@angular/platform-browser';
+import { MainMenuService } from './main-menu.service';
+
 import 'rxjs/add/observable/throw';
 
 @Component({
@@ -17,23 +18,37 @@ export class MainMenuComponent extends LoadingPage implements OnInit {
   private showedSubMenu: string;
   private activemenu: string;
   private activesubmenu: string;
+  private status: string;
+  private statuscode: number;
 
   @Output()
   onhidemenu: EventEmitter<string> = new EventEmitter();
 
-  constructor(protected storageService: StorageService, protected titleService: Title) {
+  constructor(
+    protected storageService: StorageService, 
+    protected titleService: Title,
+    protected mainMenuService: MainMenuService
+  ) {
     super(storageService);
   }
 
   ngOnInit() {
-    this.storageService.getMenuItems()
+    this.mainMenuService.getMenuItems()
       .subscribe(
-      menuitems => this.menuitems = menuitems['menuitems'], //Bind to view
+      menuitems => {
+        this.menuitems = menuitems['menuitems'];
+        this.status = menuitems['status'];
+        this.statuscode = menuitems['statuscode'];
+      }, //Bind to view
       err => {
         // Log errors if any
         this.storageService.setErrorMessage(err)
       },
       () => {
+        // status information from server
+        if (this.statuscode !== 0) {
+          this.storageService.setErrorMessage(this.status);
+        }
         this.storageService.ready()
       });
 
@@ -86,19 +101,19 @@ export class MainMenuComponent extends LoadingPage implements OnInit {
 
   isShowableMenuItem(item) {
     let retval;
-    if(this.isAuthenticatedUser()){
-      retval=item['showifauthenticated'];
-    }else{
-      retval=item['showdefault'];
+    if (this.isAuthenticatedUser()) {
+      retval = item['showifauthenticated'];
+    } else {
+      retval = item['showdefault'];
     }
     return retval;
   }
 
-  logout(){
+  logout() {
     this.storageService.logout();
   }
 
-  setLanguage(lang){
+  setLanguage(lang) {
     this.storageService.selectLanguage(lang);
     this.setTitle(this.storageService.instant('SongCatalog'));
   }

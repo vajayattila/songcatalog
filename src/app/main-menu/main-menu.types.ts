@@ -14,3 +14,9 @@ export class MenuItemType {
   showifauthenticated: boolean;
   showdefault: boolean;
 }
+
+export class MenuItemsResponseType{
+    status: string;
+    statuscode: number;
+    menuitems: Array<MenuItemType>;
+}
