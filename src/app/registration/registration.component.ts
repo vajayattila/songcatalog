@@ -4,6 +4,7 @@ import { LoadingPage } from '../loadindicator/loadindicator.component'
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { PasswordValidator } from '../validators/password.validator';
 import { GlobalValidator } from '../validators/global.validator';
+import { RegistrationService } from './registration.service';
 
 export class regdatatype {
   userName: String;
@@ -21,7 +22,11 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
   submitted = false;
   regForm: FormGroup;
 
-  constructor(protected storageService: StorageService, protected formBuilder: FormBuilder) {
+  constructor(
+    protected storageService: StorageService, 
+    protected formBuilder: FormBuilder,
+    protected registrationService: RegistrationService
+  ) {
     super(storageService);
     this.clear();
     this.buildForm();
@@ -114,7 +119,7 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
     this.regData.email=this.regForm.get('email').value;
     this.regData.password=this.regForm.get('password').value;
 
-    this.storageService.registration(this.regData).subscribe(
+    this.registrationService.registration(this.regData).subscribe(
       err => {
         // Log errors if any
         this.storageService.setErrorMessage(err)

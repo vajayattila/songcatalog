@@ -27,7 +27,8 @@ import { TranslateService } from './translate/translate.service';
 import { TranslatePipe } from './translate/translate.pipe';
 import { TRANSLATION_PROVIDERS } from './translate/translations';
 import { MainMenuService } from './main-menu/main-menu.service';
-import { AboutService } from './about/about.service'
+import { AboutService } from './about/about.service';
+import { RegistrationService } from './registration/registration.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AboutService } from './about/about.service'
     TranslateService, 
     Title, 
     MainMenuService, 
-    AboutService
+    AboutService,
+    RegistrationService
   ],
   bootstrap: [AppComponent]
 })
