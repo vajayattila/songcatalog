@@ -12,5 +12,5 @@ export class LoaderClass {
 	isReady() {
 		return !this.loading;
 	}
-        
+
 }

@@ -3,14 +3,22 @@ import { LoaderClass } from './loaderclass';
 export class MessageClass extends LoaderClass{
 	protected infoMessage: Array<String>;
 	protected errorMessage: Array<String>;
-	protected warningMessage: Array<String>;
+	protected warrningMessage: Array<String>;
 	protected successMessage: Array<String>;
 
 	constructor() {
 		super();
 	}
 
+	clearMessages(){
+		this.clearInfoMessage();
+		this.clearErrorMessage();
+		this.clearWarrningMessage();
+		this.clearSuccessMessage();
+	}
+
 	setInfoMessage(message: String) {
+		this.clearMessages();
 		this.infoMessage = [message];
 	}
 
@@ -23,10 +31,11 @@ export class MessageClass extends LoaderClass{
 	}
 
 	clearInfoMessage() {
-		this.infoMessage = [];
+		this.infoMessage = null;
 	}
 
 	setErrorMessage(message: String) {
+		this.clearMessages();
 		this.errorMessage = [message];
 	}
 
@@ -39,26 +48,28 @@ export class MessageClass extends LoaderClass{
 	}
 
 	clearErrorMessage() {
-		this.errorMessage = [];
+		this.errorMessage = null;
 	}
 
-	setWarningMessage(message: String) {
-		this.warningMessage = [message];
+	setWarrningMessage(message: String) {
+		this.clearMessages();
+		this.warrningMessage = [message];
 	}
 
-	getWarningMessage(): Array<String> {
-		return this.warningMessage;
+	getWarrningMessage(): Array<String> {
+		return this.warrningMessage;
 	}
 
-	addWarningMessage(message) {
-		this.warningMessage.push(message);
+	addWarrningMessage(message) {
+		this.warrningMessage.push(message);
 	}
 
-	clearWarningMessage() {
-		this.warningMessage = [];
+	clearWarrningMessage() {
+		this.warrningMessage = null;
 	}
 
 	setSuccessMessage(message: String) {
+		this.clearMessages();
 		this.successMessage = [message];
 	}
 
@@ -71,6 +82,7 @@ export class MessageClass extends LoaderClass{
 	}
 
 	clearSuccessMessage() {
-		this.successMessage = [];
+		this.successMessage = null;
 	}
+        
 }

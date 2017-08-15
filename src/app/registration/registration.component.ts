@@ -28,12 +28,13 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
     protected registrationService: RegistrationService
   ) {
     super(storageService);
-    this.clear();
-    this.buildForm();
+
   }
 
   ngOnInit() {
-
+    this.clear();
+    this.buildForm();
+    this.storageService.clearMessages();
   }
 
   formErrors = {
@@ -120,13 +121,26 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
     this.regData.password=this.regForm.get('password').value;
 
     this.registrationService.registration(this.regData).subscribe(
-      err => {
+      data => {
         // Log errors if any
-        this.storageService.setErrorMessage(err)
+        if (data['statuscode'] == 0) {
+          this.storageService.setSuccessMessage(data['status'] + '(' + data['statuscode'] + ')');
+        } else {
+          this.storageService.setWarrningMessage(data['status'] + '(' + data['statuscode'] + ')');
+        }
+      },
+      error => {
+        // Log errors if any
+        this.storageService.setErrorMessage(error);
+        this.storageService.ready();
       },
       ()=>{
-        this.storageService.ready()
+        this.storageService.ready();
       });;
   }
+
+	getSuccessMessage(){
+		return this.storageService.getSuccessMessage();
+	}  
 
 }

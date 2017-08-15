@@ -1,46 +1,47 @@
 <ng-container *ngIf="isReady()===false">
   <app-load-indicator></app-load-indicator>
 </ng-container>
-<ng-container *ngIf="isAuthenticatedUser()===true">
-  <app-home></app-home>
-</ng-container>
-<ng-container *ngIf="isAuthenticatedUser()===false">
-  <div class="panel panel-primary">
-    <div class="panel-heading">{{'registration' | translate}}</div>
-    <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="userNameInput">{{'username' | translate}}</label>
-        <input type="text" class="form-control" id="userNameInput" 
-          placeholder="{{'enter_user_name' | translate}}"
-          formControlName="userName" >
-        <div *ngIf="formErrors.userName" class="alert alert-danger">
-          {{ formErrors.userName | translate }}
+<app-messagepanel></app-messagepanel>
+<ng-container *ngIf="getSuccessMessage()===null">
+  <ng-container *ngIf="isAuthenticatedUser()===true">
+    <app-home></app-home>
+  </ng-container>
+  <ng-container *ngIf="isAuthenticatedUser()===false">
+    <div class="panel panel-primary">
+      <div class="panel-heading">{{'registration' | translate}}</div>
+      <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="userNameInput">{{'username' | translate}}</label>
+          <input type="text" class="form-control" id="userNameInput" 
+            placeholder="{{'enter_user_name' | translate}}"
+            formControlName="userName" >
+          <div *ngIf="formErrors.userName" class="alert alert-danger">
+            {{ formErrors.userName | translate }}
+          </div>
+          <label for="emailInput">{{'email' | translate}}</label>
+          <input type="email" class="form-control" id="emailInput" 
+            placeholder="{{'enter_email' | translate}}" 
+            formControlName="email" >
+          <div *ngIf="formErrors.email" class="alert alert-danger">
+            {{ formErrors.email | translate }}
+          </div>  
+          <label for="passwordInput">{{'password' | translate}}</label>
+          <input type="password" class="form-control" id="passwordInput" 
+            placeholder="{{'enter_password' | translate}}" formControlName="password" >
+          <div *ngIf="formErrors.password" class="alert alert-danger">
+            {{ formErrors.password | translate }}
+          </div>          
+          <label for="password2Input">{{'password_again' | translate}}</label>
+          <input type="password" class="form-control" id="password2Input" 
+            placeholder="{{'reenter_password' | translate}}" formControlName="passwordAgain" >
+          <div *ngIf="formErrors.passwordAgain" class="alert alert-danger">
+            {{ formErrors.passwordAgain | translate }}
+          </div>      
+          <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">
+            {{'registration' | translate}}
+          </button>
         </div>
-        <label for="emailInput">{{'email' | translate}}</label>
-        <input type="email" class="form-control" id="emailInput" 
-          placeholder="{{'enter_email' | translate}}" 
-          formControlName="email" >
-        <div *ngIf="formErrors.email" class="alert alert-danger">
-          {{ formErrors.email | translate }}
-        </div>  
-        <label for="passwordInput">{{'password' | translate}}</label>
-        <input type="password" class="form-control" id="passwordInput" 
-          placeholder="{{'enter_password' | translate}}" formControlName="password" >
-        <div *ngIf="formErrors.password" class="alert alert-danger">
-          {{ formErrors.password | translate }}
-        </div>          
-        <label for="password2Input">{{'password_again' | translate}}</label>
-        <input type="password" class="form-control" id="password2Input" 
-          placeholder="{{'reenter_password' | translate}}" formControlName="passwordAgain" >
-        <div *ngIf="formErrors.passwordAgain" class="alert alert-danger">
-          {{ formErrors.passwordAgain | translate }}
-        </div>      
-        <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">
-          {{'registration' | translate}}
-        </button>
-        {{regForm.status}}
-        {{regForm.value | json }}
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
+  </ng-container>
 </ng-container>

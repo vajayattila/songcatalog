@@ -40,9 +40,10 @@ export class MainMenuComponent extends LoadingPage implements OnInit {
         this.status = menuitems['status'];
         this.statuscode = menuitems['statuscode'];
       }, //Bind to view
-      err => {
+      error => {
         // Log errors if any
-        this.storageService.setErrorMessage(err)
+        this.storageService.setErrorMessage(error);
+        this.storageService.ready();
       },
       () => {
         // status information from server
