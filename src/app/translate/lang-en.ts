@@ -43,4 +43,16 @@ export const LANG_EN_TRANS = {
     'version': 'Version',
     // loadindicator
     'loading': 'Loading data...',
+    // registration
+    'user_registration': 'The user registration',
+    'success': 'Success',
+    'information': 'Information',
+    'warning': 'Warning',
+    'error': 'Error',
+    // status codes
+    'status_0': 'Successful',
+    'status_1': 'SQL error',
+    'status_2': 'Invalid action',
+    'status_3': 'The user name is already in use',
+    'status_4': 'The email is already in use'
 };

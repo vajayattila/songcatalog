@@ -10,6 +10,7 @@ export class BasedatamainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

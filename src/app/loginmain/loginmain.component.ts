@@ -14,6 +14,7 @@ export class LoginmainComponent  extends LoadingPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storageService.clearMessages();
   }
 
   isAuthenticatedUser(){

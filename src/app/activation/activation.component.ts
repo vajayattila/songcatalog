@@ -16,6 +16,7 @@ export class ActivationComponent extends LoadingPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storageService.clearMessages();
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.activationCode = params.code;
       if(this.activationCode!==undefined){

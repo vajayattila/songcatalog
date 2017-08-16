@@ -119,14 +119,18 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
     this.regData.userName=this.regForm.get('userName').value;
     this.regData.email=this.regForm.get('email').value;
     this.regData.password=this.regForm.get('password').value;
+    let message;
 
     this.registrationService.registration(this.regData).subscribe(
       data => {
         // Log errors if any
         if (data['statuscode'] == 0) {
-          this.storageService.setSuccessMessage(data['status'] + '(' + data['statuscode'] + ')');
+          message = this.storageService.instant('user_registration') + ': ' +
+            this.storageService.instant('status_' + data['statuscode']);
+          this.storageService.setSuccessMessage(message);
         } else {
-          this.storageService.setWarrningMessage(data['status'] + '(' + data['statuscode'] + ')');
+          message = this.storageService.instant('status_' + data['statuscode']);
+          this.storageService.setWarningMessage(message);
         }
       },
       error => {

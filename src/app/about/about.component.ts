@@ -25,6 +25,7 @@ export class AboutComponent extends LoadingPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storageService.clearMessages();
     this.aboutService.getVersions()
       .subscribe(
       versions => {

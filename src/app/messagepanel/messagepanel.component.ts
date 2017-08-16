@@ -29,7 +29,7 @@ export class MessagePanelComponent extends LoadingPage implements OnInit {
 	}
 
 	getWarningMessage(){
-		return this.storageService.getWarrningMessage();
+		return this.storageService.getWarningMessage();
 	}
 
 	getSuccessMessage(){

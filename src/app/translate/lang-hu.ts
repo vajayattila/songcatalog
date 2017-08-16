@@ -42,5 +42,17 @@ export const LANG_HU_TRANS = {
     'part': 'Alkatrész',
     'version': 'Verzió',
     // loadindicator
-    'loading': 'Adatok betöltése...',    
+    'loading': 'Adatok betöltése...', 
+    // registration
+    'user_registration': 'A felhasználó létrehozása',
+    'success': 'Siker',
+    'information': 'Információ',
+    'warning': 'Figyelem',
+    'error': 'Hiba',
+    // status codes
+    'status_0': 'Sikeres',
+    'status_1': 'SQL hiba',
+    'status_2': 'Érvénytelen művelet',
+    'status_3': 'A felhasználónév már szerepel az adatbázisban',
+    'status_4': 'Az email cím már használatban van' 
 };

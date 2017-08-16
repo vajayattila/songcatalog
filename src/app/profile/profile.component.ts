@@ -14,6 +14,7 @@ export class ProfileComponent extends LoadingPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storageService.clearMessages();
   }
 
   

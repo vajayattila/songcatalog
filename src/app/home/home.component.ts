@@ -15,6 +15,7 @@ export class HomeComponent extends LoadingPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storageService.clearMessages();
   }
 
 }
