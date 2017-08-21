@@ -1,24 +1,28 @@
 import { LoaderClass } from './loaderclass';
 
 export class MessageClass extends LoaderClass{
+	protected operationName: String;
 	protected infoMessage: Array<String>;
 	protected errorMessage: Array<String>;
 	protected warningMessage: Array<String>;
 	protected successMessage: Array<String>;
+	protected description: String;
+	protected statusCode: Number;
 
 	constructor() {
 		super();
 	}
 
 	clearMessages(){
+		this.clearOperationName();
 		this.clearInfoMessage();
 		this.clearErrorMessage();
 		this.clearWarningMessage();
 		this.clearSuccessMessage();
+		this.clearStatusCode();
 	}
 
 	setInfoMessage(message: String) {
-		this.clearMessages();
 		this.infoMessage = [message];
 	}
 
@@ -35,7 +39,6 @@ export class MessageClass extends LoaderClass{
 	}
 
 	setErrorMessage(message: String) {
-		this.clearMessages();
 		this.errorMessage = [message];
 	}
 
@@ -52,7 +55,6 @@ export class MessageClass extends LoaderClass{
 	}
 
 	setWarningMessage(message: String) {
-		this.clearMessages();
 		this.warningMessage = [message];
 	}
 
@@ -69,7 +71,6 @@ export class MessageClass extends LoaderClass{
 	}
 
 	setSuccessMessage(message: String) {
-		this.clearMessages();
 		this.successMessage = [message];
 	}
 
@@ -84,5 +85,46 @@ export class MessageClass extends LoaderClass{
 	clearSuccessMessage() {
 		this.successMessage = null;
 	}
-        
+
+	clearDescription(){
+		this.description = null;
+	}
+
+	setDescription(message: String) {
+		this.description = message;
+	}	
+
+	getDescription(): String {
+		return this.description;
+	}	
+		
+	clearStatusCode(){
+		this.statusCode = null;
+	}
+
+	setStatusCode(status: Number) {
+		this.statusCode = status;
+	}	
+
+	getStatusCode(): Number {
+		return this.statusCode;
+	}		
+
+	getStatusCodeString(): String {
+		return ' (' + this.statusCode + ')';
+	}
+
+	clearOperationName() {
+		this.operationName = null;
+	}
+
+	setOperationName(name: String) {
+		this.clearMessages();
+		this.operationName = name;
+	}
+
+	getOperationName(): String {
+		return this.operationName;
+	}	
+
 }

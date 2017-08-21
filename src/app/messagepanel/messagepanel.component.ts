@@ -15,25 +15,5 @@ export class MessagePanelComponent extends LoadingPage implements OnInit {
 
 	ngOnInit() {
 	}
-
-	isAuthenticatedUser() {
-		return this.storageService.isAuthenticatedUser();
-	}
-
-	getInfoMessage(): Array<String> {
-		return this.storageService.getInfoMessage();
-	}
-
-	getErrorMessage(): Array<String> {
-		return this.storageService.getErrorMessage();
-	}
-
-	getWarningMessage(){
-		return this.storageService.getWarningMessage();
-	}
-
-	getSuccessMessage(){
-		return this.storageService.getSuccessMessage();
-	}
-
+	
 }

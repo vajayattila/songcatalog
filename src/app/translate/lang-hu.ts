@@ -49,6 +49,7 @@ export const LANG_HU_TRANS = {
     'information': 'Információ',
     'warning': 'Figyelem',
     'error': 'Hiba',
+    'activation_sent': 'Az aktiváló kód elküldve a megadott email címre. Nézd meg az email fiókod.',
     // status codes
     'status_0': 'Sikeres',
     'status_1': 'SQL hiba',

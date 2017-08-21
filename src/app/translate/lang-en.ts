@@ -49,6 +49,7 @@ export const LANG_EN_TRANS = {
     'information': 'Information',
     'warning': 'Warning',
     'error': 'Error',
+    'activation_sent': 'The activation code has ben sent to the specified email. Please check it.',
     // status codes
     'status_0': 'Successful',
     'status_1': 'SQL error',
