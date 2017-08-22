@@ -80,7 +80,7 @@ export class LoadingPage {
        this.storageService.setDescription(message); 
     }
 
-    getDescription(): Array<String> {
+    getDescription(): String {
 	    return this.storageService.getDescription();
 	}
 
