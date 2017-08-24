@@ -20,6 +20,7 @@ export class MessageClass extends LoaderClass{
 		this.clearWarningMessage();
 		this.clearSuccessMessage();
 		this.clearStatusCode();
+		this.clearDescription();
 	}
 
 	setInfoMessage(message: String) {
