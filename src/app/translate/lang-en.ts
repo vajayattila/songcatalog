@@ -52,8 +52,12 @@ export const LANG_EN_TRANS = {
     'activation_sent': 'The activation code has ben sent to the specified email. Please check it.',
     // status codes
     'status_0': 'Successful',
-    'status_1': 'SQL error',
-    'status_2': 'Invalid action',
-    'status_3': 'The user name is already in use',
-    'status_4': 'The email is already in use'
+    'status_1000': 'SQL error',
+    'status_2000': 'Invalid action',
+    'status_3000': 'Can not load template file',
+    'status_30000': 'The user name is already in use',
+    'status_30001': 'The email is already in use',
+    'status_30002': 'The specified email is already activated',
+    'status_30003': 'The specified email is not found',
+    'status_30004': 'The user is not found',
 };

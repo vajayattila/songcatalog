@@ -52,8 +52,12 @@ export const LANG_HU_TRANS = {
     'activation_sent': 'Az aktiváló kód elküldve a megadott email címre. Nézd meg az email fiókod.',
     // status codes
     'status_0': 'Sikeres',
-    'status_1': 'SQL hiba',
-    'status_2': 'Érvénytelen művelet',
-    'status_3': 'A felhasználónév már szerepel az adatbázisban',
-    'status_4': 'Az email cím már használatban van' 
+    'status_1000': 'SQL hiba',
+    'status_2000': 'Érvénytelen művelet',
+    'status_3000': 'A template fájl nem betölthető',
+    'status_30000': 'A felhasználónév már szerepel az adatbázisban',
+    'status_30001': 'Az email cím már használatban van', 
+    'status_30002': 'A megadott email cím már aktiválva van',
+    'status_30003': 'A megadott email cím nem található',
+    'status_30004': 'A felhasználó nem található',    
 };
