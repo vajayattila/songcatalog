@@ -30,8 +30,7 @@ export class HelperClass extends MessageClass {
 		return this.translate.instant(key);
 	}
 
-	/*refreshText() {
-        // refresh translation when language change
-        this.translatedText = this.translate.instant('hello world');
-    }*/
+	getCurrentLanguage(){
+		return this.translate.currentLang;
+	}
 }
