@@ -10,6 +10,7 @@ export class regdatatype {
   userName: String;
   email: String;
   password: String;
+  language: String;
 }
 
 @Component({
@@ -111,7 +112,8 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
     this.regData = {
       userName: '',
       email: '',
-      password: ''
+      password: '',
+      language: this.storageService.getCurrentLanguage()
     };
   }
 
@@ -119,11 +121,13 @@ export class RegistrationComponent extends LoadingPage implements OnInit {
     this.regData.userName=this.regForm.get('userName').value;
     this.regData.email=this.regForm.get('email').value;
     this.regData.password=this.regForm.get('password').value;
+    this.regData.language=this.storageService.getCurrentLanguage();
     let statusCode;
     let message;
 
     this.registrationService.registration(this.regData).subscribe(
       data => {
+        // console.log(data);
         // Log errors if any
         this.setOperationName('user_registration');
         statusCode=data['statuscode'];
