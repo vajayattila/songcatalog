@@ -45,6 +45,7 @@ export class LoadingPage {
     }
 
     setOperationName(name: String) {
+        this.storageService.clearMessages();
 		this.storageService.setOperationName(name);
     }
     
