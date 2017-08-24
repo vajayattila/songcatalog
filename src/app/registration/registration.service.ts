@@ -23,7 +23,7 @@ export class RegistrationService implements OnInit {
 	registration(data) {
 		this.storageService.standBy();
 		let str = JSON.stringify(data);
-		console.log(str);
+		//console.log(str);
 		return this.http.post(
 			this.storageService.getSongContestWebServiceUrl(), str, {
 				params: {
